@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="project"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/xuxin/Develop/netSecurity/project/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/xuxin/Develop/netSecurity/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/xuxin/Develop/netSecurity/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/xuxin/Develop/netSecurity/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/xuxin/Develop/netSecurity/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/xuxin/Develop/netSecurity/project/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/xuxin/Develop/netSecurity/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/xuxin/Develop/netSecurity/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/xuxin/Develop/netSecurity/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/xuxin/Develop/netSecurity/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/xuxin/Develop/netSecurity/project/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/xuxin/Develop/netSecurity/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/xuxin/Develop/netSecurity/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/xuxin/Develop/netSecurity/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/xuxin/Develop/netSecurity/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="project">
+				<Option output="/Users/xuxin/Develop/netSecurity/project/cmake-build-debug/project" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xuxin/Develop/netSecurity/project/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xuxin/Develop/netSecurity/project/src"/>
+					<Add directory="/Users/xuxin/Develop/netSecurity/project/wifi-sniffer-master"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/xuxin/Develop/netSecurity/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 project"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/xuxin/Develop/netSecurity/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/xuxin/Develop/netSecurity/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/xuxin/Develop/netSecurity/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="project/fast">
+				<Option output="/Users/xuxin/Develop/netSecurity/project/cmake-build-debug/project" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xuxin/Develop/netSecurity/project/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xuxin/Develop/netSecurity/project/src"/>
+					<Add directory="/Users/xuxin/Develop/netSecurity/project/wifi-sniffer-master"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/xuxin/Develop/netSecurity/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 project/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/xuxin/Develop/netSecurity/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/xuxin/Develop/netSecurity/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/xuxin/Develop/netSecurity/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/xuxin/Develop/netSecurity/project/src/sniff.cpp">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/Users/xuxin/Develop/netSecurity/project/src/sniff.h">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/Users/xuxin/Develop/netSecurity/project/wifi-sniffer-master/CMakeLists.txt">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/Users/xuxin/Develop/netSecurity/project/wifi-sniffer-master/LICENSE">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/Users/xuxin/Develop/netSecurity/project/wifi-sniffer-master/README.md">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/Users/xuxin/Develop/netSecurity/project/wifi-sniffer-master/bin/CMakeCache.txt">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/Users/xuxin/Develop/netSecurity/project/wifi-sniffer-master/bin/Makefile">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/Users/xuxin/Develop/netSecurity/project/wifi-sniffer-master/bin/cmake_install.cmake">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/Users/xuxin/Develop/netSecurity/project/wifi-sniffer-master/cmake-build-debug/CMakeCache.txt">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/Users/xuxin/Develop/netSecurity/project/wifi-sniffer-master/cmake-build-debug/Makefile">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/Users/xuxin/Develop/netSecurity/project/wifi-sniffer-master/cmake-build-debug/cmake_install.cmake">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/Users/xuxin/Develop/netSecurity/project/wifi-sniffer-master/cmake-build-debug/wifi-sniffer.cbp">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/Users/xuxin/Develop/netSecurity/project/wifi-sniffer-master/cmake/FindPCAP.cmake">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/Users/xuxin/Develop/netSecurity/project/wifi-sniffer-master/main.cpp">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/Users/xuxin/Develop/netSecurity/project/wifi-sniffer-master/protocol_headers.h">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/Users/xuxin/Develop/netSecurity/project/wifi-sniffer-master/sniffer.cpp">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/Users/xuxin/Develop/netSecurity/project/wifi-sniffer-master/sniffer.h">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/Users/xuxin/Develop/netSecurity/project/wifi-sniffer-master/util.cpp">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/Users/xuxin/Develop/netSecurity/project/wifi-sniffer-master/util.h">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/Users/xuxin/Develop/netSecurity/project/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
