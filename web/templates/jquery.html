@@ -1,0 +1,141 @@
+<html>
+<head>
+{% block script %}
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+{% endblock %}
+</head>
+
+<body>
+
+  <script>
+  var margin = {top: 40, right: 40, bottom: 40, left: 40},
+    width = 800 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
+    pos = {};
+    points = {};
+  var interval = 3000;
+  var devNum = 0;
+  var devNameBar = 10;
+  var devNameSize = 20;
+  var devNameLen = 50;
+  var devColorLen = 80;
+  var maxR = 30
+
+
+  var circlesvg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    
+  var namesvg = d3.select("body").append("svg")
+    .attr("width", 200)
+    .attr("height", height + margin.top + margin.bottom)
+
+  var circles = circlesvg.append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  var names = namesvg.append("g")
+    .attr("transform", "translate("+ 0 + "," + margin.top + ")");
+
+    function fresh() {
+      $.ajax({
+        method: 'GET',
+        url: {{ url_for('fresh')|tojson }},
+        data: $(this).serialize()
+      }).done(freshPage);
+      setTimeout(fresh, interval);
+    }
+    function freshPage(frequency) {
+      for (key in points) {
+        points[key] = {"r": 0};
+      }
+      for (key in frequency) {
+        if (!(key in pos)) {
+          x = 0; y = 0;
+          do{
+            flag = false;
+            x = Math.floor(Math.random()*width);
+            y = Math.floor(Math.random()*height);
+            for (point in pos) {
+              x_ = pos[point]["x"]
+              y_ = pos[point]["y"]
+              if ((x_-x)*(x_-x) + (y_-y)*(y_-y) < 4*maxR*maxR){
+                flag = true;
+              }
+            }
+          }while (flag);
+
+          pos[key] = {"x":x, 
+                      "y":y, 
+                      "color":'#'+(Math.random()*0xFFFFFF<<0).toString(16)};
+        }
+        points[key] = {"r": 0}
+        points[key]["r"] = frequency[key];
+      };
+      console.log(pos)
+      // create circles
+      for (key in points){
+        circles.selectAll("#" + key)
+          .data([key])
+          .enter().append("circle")
+          .attr("class", "dot")
+          .attr("id", function(d, i){
+            return d;
+          })
+          .attr("r", 0)
+          .style("fill", pos[key]["color"]);
+
+        names.selectAll("#" + key + "text")
+          .data([key])
+          .enter().append("text")
+          .transition()
+          .duration(interval)
+          .text(key)
+          .attr("id", key + "text")
+          .attr("font-size", devNameSize)
+          .attr('transform', function(d, i){
+            var ix = 0;
+            var iy = devNum*(devNameBar + devNameSize);
+            return 'translate(' + ix + ',' + iy + ')';
+          })
+
+        names.selectAll("#" + key + "color")
+          .data([key])
+          .enter().append("rect")
+          .transition()
+          .duration(interval)
+          .text(key)
+          .attr("id", key + "color")
+          .attr("height", devNameSize)
+          .attr("width", devColorLen)
+          .attr('transform', function(d, i){
+            var ix = devNameLen;
+            var iy = devNum*(devNameBar + devNameSize) - devNameSize;
+            devNum++;
+            return 'translate(' + ix + ',' + iy + ')';
+          })
+          .attr("fill", pos[key]["color"])
+
+      };
+
+        // change attributes
+      for (key in points){
+        circles.select("#" + key)
+          .transition()
+          .duration(interval)
+          .attr("r", function(d, i){
+            return points[d]["r"];
+          })
+          .attr("cx", function(d, i){
+            return pos[d]["x"];
+          })
+          .attr("cy", function(d, i){
+            return pos[d]["y"];
+          })
+          .style("fill", pos[key]["color"]);
+      };
+    }
+    fresh();
+  </script>
+</body>
+</html>
