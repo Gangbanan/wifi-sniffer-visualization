@@ -1,1 +1,29 @@
-This project uses scapy|dpkg
+This project uses scapy to caputure the package, dpkt to parse package, flask as backend, postgresql as db, d3 to visualize.
+
+Before running the project, make sure your system is ubuntu 
+
+Usage:
+1. install the required packages:
+	pip install -r requirements.txt
+
+2. Postgresql setting, project root path and your network card interface name is located in setting.py, please change to corresponding setting in your system.
+
+3. Turn network card into monitor mode
+	sudo bash wifispy/bin/start.sh
+
+4. Run python script to cature packages and store in postgresql
+	cd wifispy	
+	sudo python wifispy.py
+
+5. Run web application
+	cd ../web
+	python views.py
+
+6. To see the visualization, enter the url
+	127.0.0.1:5000
+
+Reference:
+https://github.com/Geovation/wifispy
+
+If you have any questions, please email to fgffdsgfdff@gmail.com
+

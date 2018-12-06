@@ -12,19 +12,12 @@ import pcapy
 import dpkt
 sys.path.append('../')
 from setting import PROJECT_DIR
+from setting import interface
 sys.path.append(PROJECT_DIR)
 
-# mac
-# interface = 'en0'
-# monitor_enable  = 'tcpdump -i en0 -Ic1 -py IEEE802_11'
-# monitor_disable = 'tcpdump -i en0 -Ic1'
-# change_channel  = 'airport en0 channel {}'
-
-# linux
-interface = 'wlp2s0'
 monitor_enable  = ''
 monitor_disable = ''
-change_channel  = 'iw dev wlp2s0 set channel %s'
+change_channel  = 'iw dev ' + interface + ' set channel %s'
 
 channels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13] # 2.4GHz only
 
