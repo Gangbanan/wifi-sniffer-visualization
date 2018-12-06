@@ -1,8 +1,8 @@
 <html>
 <head>
 {% block script %}
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="js/d3.v3.min.js"></script>
 {% endblock %}
 </head>
 
@@ -18,23 +18,23 @@
   var devNum = 0;
   var devNameBar = 10;
   var devNameSize = 20;
-  var devNameLen = 50;
+  var devNameLen = 230;
   var devColorLen = 80;
   var maxR = 30
-
+  var index = 0;
 
   var circlesvg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     
   var namesvg = d3.select("body").append("svg")
-    .attr("width", 200)
+    .attr("width", 400)
     .attr("height", height + margin.top + margin.bottom)
 
   var circles = circlesvg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  var names = namesvg.append("g")
+  var names = namesvg.append("g").attr("id", "names")
     .attr("transform", "translate("+ 0 + "," + margin.top + ")");
 
     function fresh() {
@@ -69,13 +69,13 @@
                       "y":y, 
                       "color":'#'+(Math.random()*0xFFFFFF<<0).toString(16)};
         }
-        points[key] = {"r": 0}
-        points[key]["r"] = frequency[key];
+        points[key] = {"r": 0, "manu": ""}
+        points[key]["r"] = frequency[key]+5;
       };
-      console.log(pos)
       // create circles
       for (key in points){
-        circles.selectAll("#" + key)
+         if(index >= 10) { index = 0; }
+	 circles.selectAll("#" + key)
           .data([key])
           .enter().append("circle")
           .attr("class", "dot")
@@ -84,38 +84,45 @@
           })
           .attr("r", 0)
           .style("fill", pos[key]["color"]);
-
-        names.selectAll("#" + key + "text")
+	names.selectAll("#text"+index)
           .data([key])
           .enter().append("text")
-          .transition()
-          .duration(interval)
           .text(key)
-          .attr("id", key + "text")
-          .attr("font-size", devNameSize)
+          .attr("id","text"+index)
+          .attr("class", "mac")
+	  .attr("font-size", devNameSize)
           .attr('transform', function(d, i){
             var ix = 0;
-            var iy = devNum*(devNameBar + devNameSize);
-            return 'translate(' + ix + ',' + iy + ')';
+            var iy = index*(devNameBar + devNameSize);
+            
+	    return 'translate(' + ix + ',' + iy + ')';
           })
-
-        names.selectAll("#" + key + "color")
+	names.select("#text"+index)
+		      .text(function(d,i){
+			      if (frequency.hasOwnProperty(key)) {
+				return key;
+			      };})
+        names.selectAll("#color"+index)
           .data([key])
           .enter().append("rect")
-          .transition()
-          .duration(interval)
-          .text(key)
-          .attr("id", key + "color")
-          .attr("height", devNameSize)
+          .attr("id","color"+index)
+          .attr("class", "mac")
+	  .attr("height", devNameSize)
           .attr("width", devColorLen)
           .attr('transform', function(d, i){
             var ix = devNameLen;
-            var iy = devNum*(devNameBar + devNameSize) - devNameSize;
-            devNum++;
+            var iy = index*(devNameBar + devNameSize) - devNameSize;
             return 'translate(' + ix + ',' + iy + ')';
           })
           .attr("fill", pos[key]["color"])
-
+        names.select("#color"+index)
+		      .attr("fill", function(d,i){
+			      if (frequency.hasOwnProperty(key)) {
+			      	index++;
+				return pos[key]["color"];
+			      };
+			    });
+      	console.log(index)
       };
 
         // change attributes

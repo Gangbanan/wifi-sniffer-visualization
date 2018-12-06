@@ -21,3 +21,9 @@ def executeQuery(obj_conn, str_query):
     t_output = obj_cursor.fetchall()
 
     return t_output
+
+def executeSelect(obj_conn, str_query):
+    obj_cursor = obj_conn.cursor()
+    # execute our Query
+    obj_cursor.execute(str_query)
+    obj_conn.commit()

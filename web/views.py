@@ -6,6 +6,7 @@ sys.path.append('PROJECT_DIR')
 
 from flask import jsonify, render_template, request
 from flask import Flask
+import time
 from os import path
 import os
 from random import random as rand
@@ -27,19 +28,36 @@ def index():
 @app.route('/fresh', methods=['GET'])
 def fresh():
 	return jsonify(getMacDict())
-	return jsonify(getRandJsonDict())
+	#return jsonify(getRandJsonDict())
+
+@app.route('/js/d3.v3.min.js')
+def d3():
+    return render_template('d3.v3.min.js')
+
+@app.route('/js/jquery-3.3.1.min.js')
+def jquery():
+    return render_template("jquery-3.3.1.min.js")
 
 def getMacDict():
-	stat = "SELECT mac, COUNT(*) FROM sniffer GROUP BY mac;"
-	res = dbconn.executeQuery(conn, stat)
-	return dict(row for row in res)
+        t = time.time()
+	stat = """SELECT * FROM ( SELECT mac, COUNT(*) as times FROM sniff where time > {time1} and time < {time2} GROUP BY mac ) as frequency WHERE times < 60 ORDER BY times DESC limit 10;"""
+        param = {"time1":t-10, "time2":t}
+	res = dbconn.executeQuery(conn, stat.format(**param))
+	re = dict(row for row in res)
+        newre = {}
+        for mac in re:
+            newre["MAC" + "".join(mac.split(":"))] = re[mac]
+        print(newre)
+        return newre
 
 def getRandJsonDict():
 	l = ['AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG', 'HH', 'II', 'JJ', 'KK', 'LL', 'MM', 'NN', 'OO', 'PP']
 	d = {}
-	for dev in l:
+        for dev in l:
 		if rand() < 0.3:
-			d[dev] = int(rand()*30)
+                        d[dev] ={}
+			d[dev]['r'] = int(rand()*30)
+                        d[dev]['manu'] = "Apple Inc."
 	return d
 
 
