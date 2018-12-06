@@ -1,8 +1,12 @@
 This project uses scapy to caputure the package, dpkt to parse package, flask as backend, postgresql as db, d3 to visualize.
 
-Before running the project, make sure your system is ubuntu 
+Demo is under demo/. You can also see it on youtube:
+	https://youtu.be/_TGqNKPSL4U
 
 Usage:
+
+Before running the project, make sure your system is ubuntu 
+
 1. install the required packages:
 	pip install -r requirements.txt
 
